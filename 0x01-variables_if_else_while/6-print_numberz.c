@@ -8,10 +8,8 @@
 int main(void)
 {
 	int i, c;
-	char n;
 
 	c = 48;
-	n = '\n';
 
 	for (i = 0; i < 10; i++)
 	{
@@ -21,7 +19,7 @@ int main(void)
 
 	}
 
-	putchar(n);
+	putchar('\n');
 
 	return (0);
 }
