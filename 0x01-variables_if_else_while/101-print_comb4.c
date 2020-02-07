@@ -18,7 +18,7 @@ int main(void)
 	for (n1 = 0; n1 < 10; n1++, mod++)
 	{
 		min = 1 + mod;
-		for (n2 = 1+mod; n2 < 10; n2++, min++)
+		for (n2 = 1 + mod; n2 < 10; n2++, min++)
 		{
 			for (n3 = min; n3 < 10; n3++)
 			{
