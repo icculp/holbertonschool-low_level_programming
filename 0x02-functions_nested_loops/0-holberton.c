@@ -9,12 +9,13 @@
 
 int main(void)
 {
-	char holby[] = "Holberton\n";
+	char holby[] = "Holberton";
 	int i;
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 9; i++)
 	{
 		_putchar(holby[i]);
 	}
+	_putchar('\n');
 	return (0);
 }
