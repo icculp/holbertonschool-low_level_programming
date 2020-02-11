@@ -12,7 +12,7 @@ int main(void)
 	char holby[] = "Holberton\n";
 	int i;
 
-	for (i = 0; i < 12; i++)
+	for (i = 0; i < 10; i++)
 	{
 		_putchar(holby[i]);
 	}
