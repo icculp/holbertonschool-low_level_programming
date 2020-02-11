@@ -2,8 +2,8 @@
 #include "holberton.h"
 
 /**
-* _putchar - Holberton
-* main - Entry
+* main - Print Holberton
+*
 * Return: Success
 */
 
