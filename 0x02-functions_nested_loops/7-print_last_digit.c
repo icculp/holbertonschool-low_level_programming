@@ -4,7 +4,7 @@
 /**
 * print_last_digit - Prints the last digit of the number given
 * @d: Integer input
-* Return: Absolute value of input
+* Return: The value of the last digit
 */
 
 int print_last_digit(int d)
@@ -17,6 +17,5 @@ int print_last_digit(int d)
 	}
 	b = d % 10;
 	_putchar(b + '0');
-
 	return (b);
 }
