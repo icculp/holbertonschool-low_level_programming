@@ -4,29 +4,41 @@
 /**
 * times_table - Prints out the times table up to 9x9
 *
-* Return: Times table
+* Return: Void
 */
 
 void times_table(void)
 {
-	int hours = 0, minutes = 0, seconds = 0;
+	int i, j, k;
 
-	for (hours = 0; hours < 24; hours++)
+	for (i = 0; i < 10; i++)
 	{
-		for (minutes = 0; minutes < 60; minutes++)
+		_putchar('0');
+		_putchar(',');
+		_putchar(' ');
+		for (j = 1; j < 10; j++)
 		{
-			for (seconds = 0; seconds < 60; seconds++)
+			k = i * j;
+			if (k < 10)
 			{
-				_putchar('0' + (hours / 10));
-				_putchar('0' + (hours % 10));
-				_putchar(':');
-				_putchar('0' + (minutes / 10));
-				_putchar('0' + (minutes % 10));
-				_putchar(':');
-				_putchar('0' + (seconds / 10));
-				_putchar('0' + (seconds % 10));
-				_putchar('\n');
+				_putchar(' ');
+				_putchar(k + '0');
+			}
+			else if (k >= 10)
+			{
+				_putchar((k / 10) + '0');
+				_putchar((k % 10) + '0');
+			}
+			if (j < 9)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
+			else
+			{
+				continue;
 			}
 		}
+		_putchar('\n');
 	}
 }
