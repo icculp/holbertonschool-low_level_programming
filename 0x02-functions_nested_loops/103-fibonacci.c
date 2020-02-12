@@ -16,7 +16,7 @@ int main(void)
 
 	for (i = 0; i < 32; i++)
 	{
-		if (i < 31)
+		if (i < 32)
 		{
 			if (j % 2 == 0)
 			{
