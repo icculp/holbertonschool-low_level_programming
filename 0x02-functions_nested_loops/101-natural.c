@@ -2,7 +2,7 @@
 #include "holberton.h"
 
 /**
-* print_multiples_35 - Prints all multiples of 3 or 5 under 1024.
+* main - Prints all multiples of 3 or 5 under 1024.
 *
 * Return: Void
 */
