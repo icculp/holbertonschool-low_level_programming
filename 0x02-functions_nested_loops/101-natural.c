@@ -7,9 +7,9 @@
 * Return: Void
 */
 
-void print_multiples_35(void)
+int print_multiples_35(void)
 {
-	int i, j;
+	int i, j = 0;
 
 	for (i = 0; i < 1024; i++)
 	{
@@ -19,4 +19,5 @@ void print_multiples_35(void)
 		}
 	}
 	printf("%d\n", j);
+	return (j);
 }
