@@ -15,9 +15,9 @@ int main(void)
 	j = 1;
 	k = 2;
 
-	for (i = 0; i < 91; i++)
+	for (i = 0; i < 98; i++)
 	{
-		if (i < 90)
+		if (i < 97)
 		{
 		printf("%.0f, ", j);
 		l = j + k;
