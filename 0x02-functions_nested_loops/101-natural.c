@@ -7,7 +7,7 @@
 * Return: Void
 */
 
-int print_multiples_35(void)
+int main(void)
 {
 	int i, j = 0;
 
