@@ -9,23 +9,24 @@
 
 int main(void)
 {
-	long int i, j, k, l;
+	double j, k, l;
+	int i;
 
 	j = 1;
 	k = 2;
 
-	for (i = 0; i < 98; i++)
+	for (i = 0; i < 91; i++)
 	{
-		if (i < 97)
+		if (i < 90)
 		{
-		printf("%ld, ", j);
+		printf("%.0f, ", j);
 		l = j + k;
 		j = k;
 		k = l;
 		}
 		else
 		{
-			printf("%ld\n", j);
+			printf("%.0f\n", j);
 		}
 	}
 	return (0);
