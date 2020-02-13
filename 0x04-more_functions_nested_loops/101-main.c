@@ -11,11 +11,13 @@ int main(void)
     _putchar('\n');
     print_number(402);
     _putchar('\n');
-    print_number(1024);
+    print_number(1203004024);
+    _putchar('\n');
+    print_number(1111111110);
+    _putchar('\n');
+    print_number(-98888888);
     _putchar('\n');
     print_number(0);
-    _putchar('\n');
-    print_number(-98);
     _putchar('\n');
     return (0);
 }
