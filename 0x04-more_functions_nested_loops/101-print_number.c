@@ -15,19 +15,21 @@ void print_number(int n)
 		n = -n;
 		_putchar('-');
 	}
-	else if (n == 0)
+	if (n == 0)
 		_putchar('0');
-
+	else
+	{
 	temp = n;
-	while (temp)
+	while (temp > 10)
 	{
 		temp = temp / 10;
 		factor = factor * 10;
 	}
-	while (factor > 1)
+	while (factor >= 1)
 	{
-		factor = factor / 10;
 		_putchar((n / factor) + '0');
 		n = n % factor;
+		factor = factor / 10;
+	}
 	}
 }
