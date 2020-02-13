@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	long int i, j, k, l, j1, j2, k1, k2, l1, l2;
+	unsigned long int i, j, k, l, j1, j2, k1, k2, l1, l2;
 
 	j = 1, k = 2;
 	for (i = 0; i < 98; i++)
@@ -18,7 +18,7 @@ int main(void)
 		{
 			if (i < 31)
 			{
-			printf("%li, ", j);
+			printf("%lu, ", j);
 			l = j + k;
 			j = k;
 			k = l;
@@ -31,7 +31,7 @@ int main(void)
 			}
 			else
 			{
-			printf("%li%li, ", j1, j2);
+			printf("%lu%06lu, ", j1, j2);
 			l1 = j1 + k1;
 			l2 = j2 + k2;
 			j1 = k1;
@@ -47,5 +47,5 @@ int main(void)
 		}
 		else
 		{
-			printf("%li%li\n", j1, j2);
+			printf("%lu%06lu\n", j1, j2);
 }} return (0); }
