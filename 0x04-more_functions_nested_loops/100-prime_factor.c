@@ -39,7 +39,7 @@ void primeFactors(long int n)
 		}
 	}
 	if (n > 2)
-		printf("%li ", n);
+		printf("%li", n);
 
 	printf("\n");
 }
