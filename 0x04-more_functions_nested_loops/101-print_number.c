@@ -21,7 +21,7 @@ void print_number(int n)
 	else
 	{
 	temp = n;
-	while (temp > 10)
+	while (temp > 9)
 	{
 		temp = temp / 10;
 		factor = factor * 10;

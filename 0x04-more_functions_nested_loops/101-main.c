@@ -23,5 +23,9 @@ int main(void)
 	_putchar('\n');
 	print_number(-2147483648);
 	_putchar('\n');
+	print_number(1000000000);
+	_putchar('\n');
+	print_number(-1000000000);
+	_putchar('\n');
     return (0);
 }
