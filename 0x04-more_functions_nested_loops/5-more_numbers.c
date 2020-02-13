@@ -14,6 +14,8 @@ void more_numbers(void)
 
 	for (j = 0; j < 10; j++)
 	{
+		z = '0';
+		y = '0';
 		for (i = 0; i <= 14; i++, z++)
 		{
 			if (i > 9)
@@ -27,6 +29,6 @@ void more_numbers(void)
 				y++;
 			}
 		}
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
