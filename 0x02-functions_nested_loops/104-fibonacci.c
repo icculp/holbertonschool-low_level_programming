@@ -16,7 +16,7 @@ int main(void)
 	{
 		if (i < 97)
 		{
-			if (j < 1000000)
+			if (i < 31)
 			{
 			printf("%li, ", j);
 			l = j + k;
@@ -36,7 +36,7 @@ int main(void)
 			l2 = j2 + k2;
 			j1 = k1;
 			j2 = k2;
-			if (l1 >= 1000000)
+			if (l2 >= 1000000)
 			{
 				l1 = (l2 / 1000000) + l1;
 				l2 = l2 % 1000000;
