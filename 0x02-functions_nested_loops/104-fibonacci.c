@@ -4,17 +4,14 @@
 /**
 * main - Prints the first 50 numbers of fibonacci series
 *
-* Return: Void
+* Return: Success
 */
 
 int main(void)
 {
-	long int j, k, l, j1, j2, k1, k2, l1, l2;
-	int i;
+	long int i, j, k, l, j1, j2, k1, k2, l1, l2;
 
-	j = 1;
-	k = 2;
-
+	j = 1, k = 2;
 	for (i = 0; i < 98; i++)
 	{
 		if (i < 97)
@@ -24,7 +21,7 @@ int main(void)
 			printf("%li, ", j);
 			l = j + k;
 			j = k;
-			k = l; 
+			k = l;
 			j1 = j / 1000000;
 			j2 = j % 1000000;
 			k1 = k / 1000000;
@@ -34,7 +31,7 @@ int main(void)
 			}
 			else
 			{
-			printf("%li%li, ",j1,j2);
+			printf("%li%li, ", j1, j2);
 			l1 = j1 + k1;
 			l2 = j2 + k2;
 			j1 = k1;
@@ -50,8 +47,5 @@ int main(void)
 		}
 		else
 		{
-			printf("%li%li\n", j1,j2);
-		}
-	}
-	return (0);
-}
+			printf("%li%li\n", j1, j2);
+}} return (0); }
