@@ -15,9 +15,9 @@ int _atoi(char *s)
 	puiss = 1;
 	while (*s != '\0')
 	{
-		if ((*s) == '-')                                                                          
+		if ((*s) == '-')
 		{
-			puiss = puiss * -1;    
+			puiss = puiss * -1;
 			s++;
 		}
 		else if ((*s >= '0') && (*s <= '9'))
