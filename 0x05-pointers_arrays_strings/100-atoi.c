@@ -9,15 +9,15 @@
 int _atoi(char *s)
 {
 	int result;
-	int puiss;
+	int sign;
 
 	result = 0;
-	puiss = 1;
+	sign = 1;
 	while (*s != '\0')
 	{
 		if ((*s) == '-')
 		{
-			puiss = puiss * -1;
+			sign = sign * -1;
 			s++;
 		}
 		else if ((*s >= '0') && (*s <= '9'))
@@ -25,10 +25,14 @@ int _atoi(char *s)
 			result = (result * 10) + ((*s) - '0');
 			s++;
 		}
-		else if (result > 0 && !((*s >= '0') && (*s <= '9')))
-			break;
-		else
+		else if (result == 0 && !((*s >= '0') && (*s <= '9')))
+		{
 			s++;
 		}
-	return (result * puiss);
+		else if (result > 0 && !((*s >= '0') && (*s <= '9')))
+		{
+			break;
+		}
+	}
+	return (result * sign);
 }
