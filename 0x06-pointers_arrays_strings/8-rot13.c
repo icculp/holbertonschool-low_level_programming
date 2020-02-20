@@ -1,13 +1,29 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
-* rot13 - Uses rot13 to encrypt/descrypt a string
-* @s: Source string to translate 
-* Return: Success
+* rot13 - Converts a string using rot13
+* @ch: String to convert
+* Return: Converted string
 */
 
-char *rot13(char *s)
+char *rot13(char *ch)
 {
-	
-	return (0);
+	int i = 0, j;
+	char r[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char l[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+
+	while (ch[i])
+	{
+		for (j = 0; j < 52; j++)
+		{
+			if (ch[i] == r[j])
+			{
+				ch[i] = l[j];
+				break;
+			}
+		}
+		i++;
+	}
+	return (ch);
 }
