@@ -12,14 +12,18 @@ char *cap_string(char *ch)
 
 	while (ch[i])
 	{
-		if ((ch[i] == '.' || ch[i] == '.' || ch[i] == ';'
+		if (ch[0] >= 'a' && ch[0] <= 'z')
+			ch[0] -= 32;
+		else if ((ch[i] == '.' || ch[i] == '.' || ch[i] == ';'
 		|| ch[i] == '!' || ch[i] == '?'
 		|| ch[i] == '"' || ch[i] == ' ' || ch[i] == '	'
 		|| ch[i] == '\n' || ch[i] == '('
 		|| ch[i] == ')' || ch[i] == '{' || ch[i] == '}'))
 		{
 			if (ch[i + 1] >= 97 && ch[i + 1] <= 122)
+			{
 				ch[i + 1] -= 32;
+			}
 		}
 		i++;
 	}
