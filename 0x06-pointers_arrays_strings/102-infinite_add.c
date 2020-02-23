@@ -6,6 +6,7 @@
 * @n2: Second string int to add
 * @r: Buffer to store added values
 * @size_r: Size of the array buffer r[]
+* Return: Character array of sum
 */
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
