@@ -25,7 +25,7 @@ char *_strpbrk(char *s, char *accept)
 		for (l = 0; l < k; l++)
 		{
 			if (*s == accept[l])
-				return ((char*)(s));
+				return ((char *)(s));
 		}
 	}
 	return (NULL);
