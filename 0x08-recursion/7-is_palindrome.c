@@ -71,9 +71,7 @@ int compare(char *s, char *rev, int i)
 
 int is_palindrome(char *s)
 {
-	char ptrev[100];
-	
-	if (*s == '\0')
-		return (1);
+	char ptrev[500];
+
 	return (compare(s, reverse(s, ptrev, 0), 0));
 }
