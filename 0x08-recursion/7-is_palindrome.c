@@ -1,37 +1,64 @@
 #include "holberton.h"
 
 /**
+* _strlen_recursion - Returns the length of a string
+* @s: Character pointer of string to count
+* Return: Length of string
+*/
+
+int _strlen_recursion(char *s)
+{
+	int len = 0;
+
+	if (*s != '\0')
+	{
+		len++;
+		return (1 + _strlen_recursion(++s));
+	}
+	else
+		return (len);
+	return (0);
+}
+
+/**
 * reverse - Reverses a string using recursion
 * @str: String as input
+* @ptrev: Reversed string
+* @i: Iterator
 * Return: The reversed string
 */
 
-char *reverse(char *str)
+char *reverse(char *str, char *ptrev, int i)
 {
-	int i = 0;
-	char *rev = str;
+	int j = _strlen_recursion(str) - 1;
 
-	if (*str)
+	if (str[i] != '\0')
 	{
-		reverse(str + 1);
-		rev[i++] = *str;
+		reverse(str, ptrev, i + 1);
+		ptrev[j - i] = str[i];
 	}
-	return (rev);
+	return (ptrev);
 }
 
 /**
 * compare - Compares the original string with the reversed string
 * @s: Source string
 * @rev: Reversed string
+* @i: Iterator
 * Return: 1 if equal 0 if not
 */
 
-int compare(char *s, char *rev)
+int compare(char *s, char *rev, int i)
 {
-	if (*s == *rev)
-		return (compare(s + 1, rev + 1));
-	else if (*s != *rev)
+	if (s[i] != '\0')
+	{
+	if (*(s + i) == *(rev + i))
+		return (compare(s, rev, i + 1));
+	else if (*(s + i) != *(rev + i))
 		return (0);
+	else
+		return (1);
+	}
 	else
 		return (1);
 }
@@ -44,9 +71,7 @@ int compare(char *s, char *rev)
 
 int is_palindrome(char *s)
 {
-	char *rev2;
-	
-	rev2 = reverse(s);
+	char ptrev[100];
 
-	return (compare(s, rev2));
+	return (compare(s, reverse(s, ptrev, 0), 0));
 }
