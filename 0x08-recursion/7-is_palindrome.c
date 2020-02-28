@@ -74,6 +74,6 @@ int is_palindrome(char *s)
 	char ptrev[100];
 	
 	if (*s == '\0')
-		return (0);
+		return (1);
 	return (compare(s, reverse(s, ptrev, 0), 0));
 }
