@@ -64,13 +64,6 @@ int _strlen(char *s)
 
 	return (i);
 }
-/**
-* _strcat - Concatenates two strings
-* @dest: Character buffer
-* @src: Character source
-* Return: On success 1.
-*/
-
 
 /**
 * *str_concat - Concatenates two strings with memeory in mind
@@ -90,6 +83,5 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 	ray = _strcpy(ray, s1);
 	ray = _strcat(ray, s2);
-	
 	return (ray);
 }
