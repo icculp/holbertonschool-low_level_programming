@@ -29,8 +29,11 @@ char *_strdup(char *str)
 	char *ray;
 	int i = 0;
 
+	if (str == NULL)
+		return (NULL);
+
 	ray = (char *) malloc(_strlen(str) + 1);
-	if (ray == NULL || str == NULL)
+	if (ray == NULL)
 		return (NULL);
 	while (i <= _strlen(str))
 	{
