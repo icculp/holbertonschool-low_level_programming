@@ -30,7 +30,7 @@ char *_strdup(char *str)
 	int i = 0;
 
 	ray = malloc(_strlen(str));
-	if (ray == NULL || _strlen(str) == 0)
+	if (ray == NULL || str == NULL)
 		return (NULL);
 	while (i <= _strlen(str))
 	{
