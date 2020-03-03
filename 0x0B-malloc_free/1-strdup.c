@@ -29,10 +29,10 @@ char *_strdup(char *str)
 	char *ray;
 	int i = 0;
 
-	ray = (char*)malloc(_strlen(str) + 1);
+	ray = (char *) malloc(_strlen(str) + 1);
 	if (ray == NULL || str == NULL)
 		return (NULL);
-	while (i < _strlen(str))
+	while (i <= _strlen(str))
 	{
 		ray[i] = str[i];
 		i++;
