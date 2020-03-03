@@ -86,8 +86,8 @@ char *str_concat(char *s1, char *s2)
 		s2 = malloc(1);
 		*s2 = '\0';
 	}
-	j = (_strlen(s1) + _strlen(s2));
-	ray = (char *) malloc(j + 1);
+	j = (_strlen(s1) + _strlen(s2) + 1);
+	ray = (char *) malloc(j);
 	if (ray == NULL || (j == 0))
 		return (NULL);
 	ray = _strcpy(ray, s1);
