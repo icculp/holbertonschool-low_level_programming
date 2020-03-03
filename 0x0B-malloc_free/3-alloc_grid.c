@@ -27,6 +27,6 @@ int **alloc_grid(int width, int height)
 			ray[i][k] = 0;
 		}
 	}
-	
+
 	return (ray);
 }
