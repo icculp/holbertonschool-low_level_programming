@@ -32,7 +32,7 @@ char *_strdup(char *str)
 	ray = malloc(_strlen(str) + 1);
 	if (ray == NULL || str == NULL)
 		return (NULL);
-	while (i <= _strlen(str) + 1)
+	while (i <= _strlen(str))
 	{
 		ray[i] = str[i];
 		i++;
