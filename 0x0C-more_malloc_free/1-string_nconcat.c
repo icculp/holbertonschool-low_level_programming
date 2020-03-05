@@ -29,13 +29,13 @@ char *_strncat(char *dest, char *src, int n)
 		{
 			dest[j] = src[k];
 		}
-		dest[j] = '\0';
 	}
 	else
 	{
 		for (k = 0; k < n; j++, k++)
 			dest[j] = src[k];
 	}
+	dest[j] = '\0';
 	return (dest);
 }
 
