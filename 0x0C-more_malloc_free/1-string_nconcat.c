@@ -94,7 +94,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2 = malloc(1);
 		*s2 = '\0';
 	}
-	j = (_strlen(s1) + n + 1);
+	if (n < (unsigned int)_strlen(s2))
+		j = (_strlen(s1 + n + 1);
+	else
+		j = (_strlen(s1) + _strlen(s2) + 1);
 	ray = malloc(j);
 	if (ray == NULL)
 	{
