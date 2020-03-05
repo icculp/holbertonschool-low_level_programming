@@ -19,7 +19,8 @@ int wordcount(char *str)
 		{
 		str++;
 		}
-		count++;
+		if (*str != '\0')
+			count++;
 		while (*str != ' ')
 		{
 			if (*str != '\0')
@@ -61,24 +62,22 @@ char **strtow(char *str)
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
 	wc = wordcount(str);
-	ray = (char **) malloc(wc * sizeof(char *)); 
+	ray = (char **) malloc(wc * sizeof(char *));
 	if (ray == NULL)
 	{
 		free(ray);
-		return (NULL);
-	}
-	for (i = 0; i < wc; i++)
+		return (NULL); }
+	for (i = 0; i <= wc; i++)
 	{
 		for (inlen = 0; str[totlen + inlen] != ' '; inlen++)
 			;
-		ray[i] = (char *) malloc(sizeof(char) * inlen);
+		ray[i] = (char *) malloc(sizeof(char) * (inlen + 1));
 		if (ray[i] == NULL)
 		{
 			for (; i >= 0; i--)
 				free(ray[i]);
 			free(ray);
-			return (NULL);
-		}
+			return (NULL); }
 		for (j = 0; j < inlen; j++, totlen++)
 		{
 			ray[i][j] = str[totlen];
@@ -86,33 +85,14 @@ char **strtow(char *str)
 		if (str[totlen] != ' ')
 		{
 			if (i < wc)
-				ray[i][j] = '\n';
-			else
 				ray[i][j] = '\0';
-		}
+			else
+			{
+				ray[i][j] = '\0';
+				ray[i + 1] = NULL;
+			}}
 		while (str[totlen] == ' ')
 			totlen++;
 		if (str[totlen] == '\0')
 			break;
-	}
-	return (ray);
-/**
-		if (str[k] != ' ')
-		{
-			ray[i][j++] = str[k++];
-		}
-		else
-		{
-			if (str[k] != ' ')
-			{
-				ray[i][j++] = '\0';
-				i++;
-			}
-			else
-			{
-				i++, j = 0;
-			}}
-		if (str[k] == '\0')
-			break; } k++;
-	return (ray);*/
-}
+	} return (ray); }
