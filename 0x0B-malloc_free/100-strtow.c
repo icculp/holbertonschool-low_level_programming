@@ -62,6 +62,8 @@ char **strtow(char *str)
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
 	wc = wordcount(str);
+	if (wc == 0)
+		return (NULL);
 	ray = (char **) malloc(wc * sizeof(char *));
 	if (ray == NULL)
 	{
