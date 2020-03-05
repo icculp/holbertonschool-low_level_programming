@@ -107,7 +107,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	ray = _strcpy(ray, s1);
 	if (n < (unsigned int)_strlen(s2))
-		ray = _strncat(ray, s2, n);
+		ray = _strncat(ray, s2, (int)n);
 	else
 		ray = _strncat(ray, s2, _strlen(s2));
 
