@@ -12,7 +12,7 @@
 int *array_range(int min, int max)
 {
 	int *ray;
-	int i = 0, numvals = max - min;
+	int mincpy = min, index = 0, numvals = max - min;
 
 	if (min > max)
 		return (NULL);
@@ -20,9 +20,9 @@ int *array_range(int min, int max)
 	if (ray == NULL)
 		return (NULL);
 
-	for (i = min; i <= numvals; i++)
+	for (; mincpy <= numvals; mincpy++, index++)
 	{
-		ray[i] = i;
+		ray[index] = mincpy;
 	}
 	return (ray);
 }
