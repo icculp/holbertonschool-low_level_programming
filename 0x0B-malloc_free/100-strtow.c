@@ -67,9 +67,11 @@ char **strtow(char *str)
 	{
 		free(ray);
 		return (NULL); }
-	for (i = 0; i <= wc; i++)
+	for (i = 0; i < wc; i++)
 	{
-		for (inlen = 0; str[totlen + inlen] != ' '; inlen++)
+		while (str[totlen] == ' ')
+			totlen++;
+		for (inlen = 0; str[totlen + inlen] != ' ' && str[totlen + inlen]; inlen++)
 			;
 		ray[i] = (char *) malloc(sizeof(char) * (inlen + 1));
 		if (ray[i] == NULL)
@@ -83,16 +85,9 @@ char **strtow(char *str)
 			ray[i][j] = str[totlen];
 		}
 		if (str[totlen] != ' ')
-		{
-			if (i < wc)
-				ray[i][j] = '\0';
-			else
-			{
-				ray[i][j] = '\0';
-				ray[i + 1] = NULL;
-			}}
-		while (str[totlen] == ' ')
-			totlen++;
+			ray[i][j] = '\0';
 		if (str[totlen] == '\0')
 			break;
-	} return (ray); }
+	}
+	ray[i] = NULL;
+	return (ray); }
