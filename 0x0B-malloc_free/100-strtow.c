@@ -76,5 +76,5 @@ char **strtow(char *str)
 		if (str[totlen] == '\0')
 			break;
 	}
-	ray[i] = NULL;
+	ray[i + 1] = NULL;
 	return (ray); }
