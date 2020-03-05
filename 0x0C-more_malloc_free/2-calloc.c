@@ -23,5 +23,5 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	{
 		ray[i] = 0;
 	}
-	return (ray);
+	return ((void *)ray);
 }
