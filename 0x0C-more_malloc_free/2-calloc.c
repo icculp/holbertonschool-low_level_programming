@@ -11,7 +11,7 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *ray;
+	char *ray;
 	unsigned int i, j = 0;
 
 	j = (size * nmemb);
@@ -19,7 +19,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (ray == NULL || nmemb == 0 || size == 0)
 		return (NULL);
 
-	for (i = 0; i < nmemb; i++)
+	for (i = 0; i < j; i++)
 	{
 		ray[i] = 0;
 	}
