@@ -20,7 +20,7 @@ int *array_range(int min, int max)
 	if (ray == NULL)
 		return (NULL);
 
-	for (; mincpy <= numvals; mincpy++, index++)
+	for (; mincpy <= max; mincpy++, index++)
 	{
 		ray[index] = mincpy;
 	}
