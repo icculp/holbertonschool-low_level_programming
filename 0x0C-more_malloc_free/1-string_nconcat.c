@@ -71,11 +71,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return (NULL);
 	}
 	ray = _strcpy(ray, s1);
-	for (j = 0; j < lens2; j++, lens1++)
+	for (j = 0; j < lens2; j++)
 	{
-		ray[lens1] = s2[j];
+		ray[lens1 + j] = s2[j];
 	}
-	ray[lens1] = '\0';
+	ray[lens1 + lens2] = '\0';
 
 	return (ray);
 }
