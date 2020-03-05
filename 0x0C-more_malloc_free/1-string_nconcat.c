@@ -15,7 +15,6 @@ int _strlen(char *);
 char *_strncat(char *dest, char *src, int n)
 {
 	int i = 0, j = 0, k = 0;
-	int srclen = _strlen(src);
 	
 	while (src[i] != '\0')
 	{
@@ -35,7 +34,7 @@ char *_strncat(char *dest, char *src, int n)
 	}
 	else
 	{
-		for (k = 0; k < srclen; j++, k++)
+		for (k = 0; k < n; j++, k++)
 			dest[j] = src[k];
 	}
 	dest[j] = '\0';
@@ -113,7 +112,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (n < (unsigned int)_strlen(s2))
 		ray = _strncat(ray, s2, n);
 	else
-		ray = _strncat(ray, s2, _strlen(s2) + 1);
+		ray = _strncat(ray, s2, _strlen(s2));
 
 	return (ray);
 }
