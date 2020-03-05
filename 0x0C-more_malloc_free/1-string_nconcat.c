@@ -15,7 +15,7 @@ int _strlen(char *);
 char *_strncat(char *dest, char *src, int n)
 {
 	int i = 0, j = 0, k = 0;
-	
+
 	while (src[i] != '\0')
 	{
 		i++;
@@ -99,10 +99,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2 = malloc(1);
 		*s2 = '\0';
 	}
-	if (n < (unsigned int)_strlen(s2))
-		j = (_strlen(s1) + n + 1) * sizeof(char);
-	else
-		j = (_strlen(s1) + _strlen(s2) + 1) * sizeof(char);
+	j = (_strlen(s1) + n + 1) * sizeof(char);
 	ray = malloc(j);
 	if (ray == NULL)
 	{
@@ -112,7 +109,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (n < (unsigned int)_strlen(s2))
 		ray = _strncat(ray, s2, n);
 	else
-		ray = _strncat(ray, s2, _strlen(s2));
+		ray = _strncat(ray, s2, _strlen(s2);
 
 	return (ray);
 }
