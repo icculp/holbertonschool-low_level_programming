@@ -33,22 +33,6 @@ int wordcount(char *str)
 }
 
 /**
-* _strlen - Determines the length of the string manually
-* @s: Pointer to array of characters
-* Return: Value of length
-*/
-
-int _strlen(char *s)
-{
-	int i = 0;
-
-	while (s[i] != '\0')
-		i++;
-
-	return (i);
-}
-
-/**
 * **strtow - Splits a string into words
 * @str: String to split into words
 * Return: Multidim array of words
@@ -73,7 +57,8 @@ char **strtow(char *str)
 	{
 		while (str[totlen] == ' ')
 			totlen++;
-		for (inlen = 0; str[totlen + inlen] != ' '; inlen++)
+		for (inlen = 0; str[totlen + inlen] != ' '
+		&& str[totlen + inlen] != '\0'; inlen++)
 			;
 		ray[i] = malloc(sizeof(char) * (inlen + 1));
 		if (ray[i] == NULL)
