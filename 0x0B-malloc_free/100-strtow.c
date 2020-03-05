@@ -73,7 +73,7 @@ char **strtow(char *str)
 	{
 		while (str[totlen] == ' ')
 			totlen++;
-		for (inlen = 0; str[totlen + inlen] != ' ' && str[totlen + inlen]; inlen++)
+		for (inlen = 0; str[totlen + inlen] != ' '; inlen++)
 			;
 		ray[i] = malloc(sizeof(char) * (inlen + 1));
 		if (ray[i] == NULL)
