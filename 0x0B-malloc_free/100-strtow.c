@@ -64,7 +64,7 @@ char **strtow(char *str)
 	wc = wordcount(str);
 	if (wc == 0)
 		return (NULL);
-	ray = (char **) malloc(wc * sizeof(char *));
+	ray = malloc((wc + 1) * sizeof(char *));
 	if (ray == NULL)
 	{
 		free(ray);
@@ -75,7 +75,7 @@ char **strtow(char *str)
 			totlen++;
 		for (inlen = 0; str[totlen + inlen] != ' ' && str[totlen + inlen]; inlen++)
 			;
-		ray[i] = (char *) malloc(sizeof(char) * (inlen + 1));
+		ray[i] = malloc(sizeof(char) * (inlen + 1));
 		if (ray[i] == NULL)
 		{
 			for (; i >= 0; i--)
