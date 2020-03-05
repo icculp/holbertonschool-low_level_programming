@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int _strlen(char *);
+
 /**
 * _strncat - Concatenates two strings, but only n elements of src
 * @dest: Character buffer
@@ -13,7 +15,8 @@
 char *_strncat(char *dest, char *src, int n)
 {
 	int i = 0, j = 0, k = 0;
-
+	int srclen = _strlen(src);
+	
 	while (src[i] != '\0')
 	{
 		i++;
@@ -32,7 +35,7 @@ char *_strncat(char *dest, char *src, int n)
 	}
 	else
 	{
-		for (k = 0; k < n; j++, k++)
+		for (k = 0; k < srclen; j++, k++)
 			dest[j] = src[k];
 	}
 	dest[j] = '\0';
