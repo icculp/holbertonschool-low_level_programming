@@ -53,8 +53,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *ray;
 	unsigned int j = 0, lens1 = 0, lens2 = 0;
 
-	lens1 = _strlen(s1);
-	lens2 = _strlen(s2);
 	if (s1 == NULL)
 	{	s1 = "";
 	}
@@ -62,6 +60,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		s2 = "";
 	}
+	lens1 = _strlen(s1);
+	lens2 = _strlen(s2);
 	if (n < lens2)
 		lens2 = n;
 	j = (lens1 + lens2 + 1) * sizeof(char);
