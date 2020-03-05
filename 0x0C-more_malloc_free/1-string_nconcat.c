@@ -88,8 +88,10 @@ int _strlen(char *s)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ray;
-	int j = 0;
+	unsigned int j = 0, lens1 = 0, lens2 = 0;
 
+	lens1 = _strlen(s1);
+	lens2 = _strlen(s2);
 	if (s1 == NULL)
 	{	s1 = malloc(1);
 		*s1 = '\0';
@@ -99,17 +101,20 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2 = malloc(1);
 		*s2 = '\0';
 	}
-	j = (_strlen(s1) + n + 1) * sizeof(char);
+	if (n < lens2)
+		lens2 = n;
+	j = (lens1 + lens2 + 1) * sizeof(char);
 	ray = malloc(j);
 	if (ray == NULL)
 	{
 		return (NULL);
 	}
 	ray = _strcpy(ray, s1);
-	if (n <= (unsigned int)_strlen(s2))
-		ray = _strncat(ray, s2, (int)n);
-	else
-		ray = _strncat(ray, s2, _strlen(s2));
+	for (j = 0; j < lens2; j++, lens1++)
+	{
+		ray[lens1] = s2[j];
+	}
+	ray[lens1] = '\0';
 
 	return (ray);
 }
