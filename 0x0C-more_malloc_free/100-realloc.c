@@ -12,10 +12,10 @@
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	int *ray;
+	char *ray;
 	int index = 0;
 
-	if (new_size <= old_size)
+	if (new_size == old_size)
 		return (ptr);
 	else if (ptr == NULL)
 	{
