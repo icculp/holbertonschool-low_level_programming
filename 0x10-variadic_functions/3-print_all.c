@@ -18,8 +18,7 @@ int _strlen(const char *s)
 
 /**
 * print_all - Prints every argument passed
-* @separator: Method of separating numbers printed
-* @n: Number of numbers to print
+* @format: Character array indicating datatype of arguments
 */
 
 void print_all(const char * const format, ...)
