@@ -51,7 +51,10 @@ int _do(const char * const format)
 	int n = 0;
 
 	while (format != NULL)
+	{
 		n = _strlen(format);
+		break;
+	}
 	return (n);
 }
 
