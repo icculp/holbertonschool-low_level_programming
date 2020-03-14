@@ -11,12 +11,11 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_list arglist;
 	unsigned int i;
 
-	if (n == 0)
-		return;
 	va_start(arglist, n);
 	for (i = 0; i < n; i++)
 	{
-		char * temparg = va_arg(arglist, char*);
+		char *temparg = va_arg(arglist, char*);
+
 		if (temparg == NULL)
 			printf("(nil)");
 		else
