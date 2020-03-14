@@ -41,6 +41,21 @@ int _strlen(const char *s)
 }
 
 /**
+* _do - Check if format is null, return strlen of format or 0
+* @format: String of format characters
+* Return: 0 or strlen of format
+*/
+
+int _do(const char * const format)
+{
+	int n = 0;
+
+	while (format != NULL)
+		n = _strlen(format);
+	return (n);
+}
+
+/**
 * print_all - Prints every argument passed
 * @format: Character array indicating datatype of arguments
 */
@@ -54,9 +69,9 @@ void print_all(const char * const format, ...)
 	char *tempargs;
 	float tempargf;
 
-	n = _strlen(format);
+	n = _do(format);
 	va_start(arglist, format);
-	while (format != NULL && format[i] != '\0')
+	while (i < n)
 	{
 		switch (format[i])
 		{
