@@ -1,6 +1,30 @@
 #include "variadic_functions.h"
 
 /**
+* _pstr - Prints char* for temparg
+* @tempargs: Temp arg var to prevent multiple iteration
+*/
+
+void _pstr(char *tempargs)
+{
+	if (tempargs == NULL)
+		tempargs = "(nil)";
+	printf("%s", tempargs);
+}
+
+/**
+* _sep - Prints separator if i < n - 1
+* @i: iterator
+* @n: Length of format
+*/
+
+void _sep(int i, int n)
+{
+		if (i < n - 1)
+			printf(", ");
+}
+
+/**
 * _strlen - Determines the length of the string manually
 * @s: Pointer to array of characters
 * Return: Value of length
@@ -30,10 +54,8 @@ void print_all(const char * const format, ...)
 	char *tempargs;
 	float tempargf;
 
-	n = 4;/*_strlen(format);*/
-	if (n == 0)
-		return;
-	va_start(arglist, n);
+	n = _strlen(format);
+	va_start(arglist, format);
 	while (i < n)
 	{
 		switch (format[i])
@@ -41,24 +63,26 @@ void print_all(const char * const format, ...)
 			case 'c':
 				tempargc = va_arg(arglist, int);
 				printf("%c", tempargc);
+				_sep(i, n);
 				break;
 			case 'i':
 				tempargi = va_arg(arglist, int);
 				printf("%d", tempargi);
+				_sep(i, n);
 				break;
 			case 'f':
 				tempargf = va_arg(arglist, double);
 				printf("%f", tempargf);
+				_sep(i, n);
 				break;
 			case 's':
 				tempargs = va_arg(arglist, char *);
-				printf("%s", tempargs);
+				_pstr(tempargs);
+				_sep(i, n);
 				break;
 			default:
-				continue;
+				break;
 		}
-		if (i < n - 1)
-			printf(", ");
 		i++;
 	}
 	va_end(arglist);
