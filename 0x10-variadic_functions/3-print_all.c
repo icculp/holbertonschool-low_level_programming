@@ -34,41 +34,33 @@ void print_all(const char * const format, ...)
 	n = 4;/*_strlen(format);*/
 	if (n == 0)
 		return;
-	va_start(arglist, format);
-	while (format[i] != '\0')
+	va_start(arglist, n);
+	while (i < n)
 	{
-		/*printf("a%d", i);*/
 		switch (format[i])
 		{
 			case 'c':
 				tempargc = va_arg(arglist, int);
 				printf("%c", tempargc);
-				if (i < n - 1)
-					printf(", ");
 				break;
 			case 'i':
 				tempargi = va_arg(arglist, int);
 				printf("%d", tempargi);
-				if (i < n - 1)
-					printf(", ");
 				break;
 			case 'f':
 				tempargf = va_arg(arglist, double);
 				printf("%f", tempargf);
-				if (i < n - 1)
-					printf(", ");
 				break;
 			case 's':
 				tempargs = va_arg(arglist, char *);
 				printf("%s", tempargs);
-				if (i < n - 1)
-					printf(", ");
 				break;
 			default:
-				break;
+				continue;
 		}
+		if (i < n - 1)
+			printf(", ");
 		i++;
-		/*printf("b%d", i);*/
 	}
 	va_end(arglist);
 	printf("\n");
