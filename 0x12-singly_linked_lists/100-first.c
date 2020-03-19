@@ -1,12 +1,12 @@
-#include "lists.h"
+#include <stdio.h>
 
 /**
-* pb4main - Prints a sentence before main executes
+* pbmain - Prints a sentence before main executes
+* Return: void
 */
 
-void pb4main(void) __attribute__((constructor));
 
-void pb4main(void)
+void __attribute__ ((constructor)) pbmain(void)
 {
 	printf("You're beat! and yet, you must allow,\n");
 	printf("I bore my house upon my back!\n");
