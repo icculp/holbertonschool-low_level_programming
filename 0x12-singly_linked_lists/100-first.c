@@ -1,10 +1,10 @@
 #include <stdio.h>
 
+
 /**
 * pbmain - Prints a sentence before main executes
 * Return: void
 */
-
 
 void __attribute__ ((constructor)) pbmain(void)
 {
