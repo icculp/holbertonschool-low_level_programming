@@ -13,8 +13,9 @@ size_t print_listint_safe(const listint_t *head)
 
 	if (head == NULL)
 		return (0);
-	for (nodes = 0; temp != NULL; nodes++)
+	for (nodes = 0; temp != NULL;)
 	{
+		nodes++;
 		printf("[%p] %d\n", (void *)temp, temp->n);
 		if (temp->next >= temp)
 		{
