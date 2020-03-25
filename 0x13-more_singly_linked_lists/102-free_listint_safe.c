@@ -8,23 +8,29 @@
 
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *temp = *h;
+	listint_t *temp = *h, *arr[50];
 	size_t nodes;
+	unsigned int i;
 
-	if (*h == NULL || h == NULL)
+	if (h == NULL || *h == NULL)
 		return (0);
 	for (nodes = 0; temp != NULL;)
 	{
 		nodes++;
-		temp = (*h)->next;
-		free(*h);
-		*h = temp;
-		if (temp ==  NULL)
+		for (i = 0; i < nodes; i++)
 		{
-			printf("(nil), (nil)\n");
-			return (nodes);
+			if (temp == arr[i])
+				break;
 		}
+		if (i != nodes)
+			break;
+		arr[i] = temp;
+		temp = temp->next;
 	}
-
+	for (i = 0; i < nodes; i++)
+	{
+		free(arr[i]);
+	}
+	*h = NULL;
 	return (nodes);
 }
