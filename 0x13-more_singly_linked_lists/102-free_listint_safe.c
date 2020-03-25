@@ -8,18 +8,13 @@
 
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *temp = *h, *arr[50];
+	listint_t *temp = *h, *arr[1024];
 	size_t nodes;
 	unsigned int i;
 
 	if (h == NULL || *h == NULL)
 		return (0);
-	if ((*h)->next == *h)
-	{
-		free(*h);
-		*h = NULL;
-		return (1);
-	}
+
 	for (nodes = 0; temp != NULL; nodes++)
 	{
 		for (i = 0; i < nodes; i++)
