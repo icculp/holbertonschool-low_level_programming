@@ -13,7 +13,7 @@ size_t free_listint_safe(listint_t **h)
 	unsigned int i;
 
 	if (h == NULL || *h == NULL)
-		return (0);
+		exit(98);
 	for (nodes = 0; temp != NULL;)
 	{
 		nodes++;
