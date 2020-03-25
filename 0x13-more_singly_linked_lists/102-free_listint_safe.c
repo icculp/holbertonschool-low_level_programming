@@ -14,6 +14,11 @@ size_t free_listint_safe(listint_t **h)
 
 	if (h == NULL || *h == NULL)
 		return (0);
+	if ((*h)->next == *h)
+	{
+		free(*h);
+		return (1);
+	}
 	for (nodes = 0; temp != NULL; nodes++)
 	{
 		for (i = 0; i < nodes; i++)
