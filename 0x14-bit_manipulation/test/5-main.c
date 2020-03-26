@@ -10,13 +10,13 @@ int main(void)
 {
     unsigned int n;
 
-    n = flip_bits(1024, 1);
+    n = flip_bits(4294967295, 4294967295);
     printf("%u\n", n);
-    n = flip_bits(402, 98);
+    n = flip_bits(4294967295, 0);
     printf("%u\n", n);
-    n = flip_bits(1024, 3);
+    n = flip_bits(4294967295, 4294967294);
     printf("%u\n", n);
-    n = flip_bits(1024, 1025);
+    n = flip_bits(2147483648, 2147483647);
     printf("%u\n", n);
     return (0);
 }
