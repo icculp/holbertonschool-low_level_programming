@@ -8,29 +8,7 @@
 
 void print_binary(unsigned long int n)
 {
-	char ch;
-	char bin[1024];
-	int i = 0;
-
-	if (n == 0)
-	{
-		_putchar('0');
-		return;
-	}
-	while (n > 0)
-	{
-		if ((n & 1) == 0)
-			ch = '0';
-		else
-			ch = '1';
-		bin[i] = ch;
-		i++;
-		n = n >> 1;
-	}
-	i--;
-	while (i >= 0)
-	{
-		_putchar(bin[i]);
-		i--;
-	}
+	if (n > 1)
+		print_binary(n >> 1);
+	_putchar((n & 1) + '0');
 }
