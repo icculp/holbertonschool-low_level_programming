@@ -14,6 +14,8 @@ int get_bit(unsigned long int n, unsigned int index)
 
 	for (i = 0; i < index; i++)
 		mask = mask << 1;
+	if (index > 31)
+		return (-1);
 	if ((n & mask))
 		return (1);
 	else if (!(n & mask))
