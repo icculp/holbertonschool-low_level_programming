@@ -2,7 +2,7 @@
 #include <math.h>
 
 /**
-* clear_but - Sets bit to 0 at given index
+* clear_bit - Sets bit to 0 at given index
 * @n: Pointer to number to set bit of
 * @index: Index of bit to set to 1
 * Return: 1 on success, -1 if error
