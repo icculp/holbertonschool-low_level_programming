@@ -26,6 +26,11 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	while ((len = read(o_from, buf, 1024)))
 	{
+		if (len == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
+		}
 		w = write(o_to, buf, len);
 		if (w == -1)
 		{
