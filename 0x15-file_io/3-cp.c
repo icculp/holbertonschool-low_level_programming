@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	o_from = open(argv[1], O_RDONLY);
 	if (o_from == -1)
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]), exit(98);
-	o_to = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
+	o_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (o_to == -1)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	while ((len = read(o_from, buf, 1024)))
