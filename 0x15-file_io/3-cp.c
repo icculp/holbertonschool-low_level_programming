@@ -10,31 +10,31 @@
 
 int main(int argc, char **argv)
 {
-	int o_to, o_from, cl_to, cl_from, len = 0;
+	int o_to, o_from, cl_to, cl_from, len = 0, w;
 	char buf[1024];
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+		exit(97); }
 	o_from = open(argv[1], O_RDONLY);
 	if (o_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]);
-		exit(98);
-	}
+		exit(98); }
 	o_to = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
 	if (o_to == -1)
 	{
-		write(STDERR_FILENO, "Error: Can't write to %s\n", *argv[2]);
-		exit(99);
-	}
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99); }
 	while ((len = read(o_from, buf, 1024)))
 	{
-		write(o_to, buf, len);
-	}
-
+		w = write(o_to, buf, len);
+		if (w != len)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
+		}}
 	cl_to = close(o_to);
 	if (cl_to == -1)
 	{
