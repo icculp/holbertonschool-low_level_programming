@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 	while ((len = read(o_from, buf, 1024)))
 	{
 		w = write(o_to, buf, len);
-		if (w != len)
+		if (w == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
