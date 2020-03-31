@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <string.h>
 
 /**
 * read_textfile - Reads a textfile and prints it to POSIX stdout
@@ -9,7 +10,7 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int o, r;
+	int o, r, w;
 	char *buf = malloc(sizeof(char) * letters);
 
 	if (buf == NULL)
@@ -23,6 +24,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (r == -1)
 		return (0);
 	buf[r] = '\0';
-	write(STDOUT_FILENO, buf, letters);
-	return (r);
+	w = write(STDOUT_FILENO, buf, strlen(buf));
+	if ((w == -1) | (w == 0))
+		return (0);
+	if (r != w)
+		return (0);
+	return (w);
 }
