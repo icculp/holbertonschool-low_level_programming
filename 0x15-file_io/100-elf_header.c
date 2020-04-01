@@ -2,6 +2,26 @@
 #include "holberton.h"
 
 /**
+* pmagic - Prints the magic numbers of elf file
+* @header - elf header struc
+*/
+
+void pmagic(Elf64_Ehdr header)
+{
+	int i;
+
+	printf("  Magic:   ");
+	for (i = 0; i < EI_NIDENT; i++)
+	{
+		printf("%2.2x", header.e_ident[i]);
+		if (i != EI_NIDENT - 1)
+			printf(" ");
+		else
+			printf("\n");
+	}
+}
+
+/**
 * main - Displays info contained in ELF header
 * @argc: Number of args
 * @argv: Args vars
@@ -17,11 +37,11 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n"), exit(98);
 	o = open(argv[1], O_RDONLY);
 	if (o == -1)
-		dprintf(STDERR_FILENO, "Your file sucks\n"), exit(98);
+		dprintf(STDERR_FILENO, "Can't open file %s\n", argv[1]), exit(98);
 	r = read(o, &header, sizeof(header));
 	if (r == -1)
-		dprintf(STDERR_FILENO, "Your file sucks\n"), exit(98);
-	if (header.e_type == 0x7f &&
+		dprintf(STDERR_FILENO, "Can't open file %s\n", argv[1]), exit(98);
+	if (header.e_ident[0] == 0x7f &&
 		header.e_ident[1] == 'E' &&
 		header.e_ident[2] == 'L' &&
 		header.e_ident[3] == 'F')
@@ -29,9 +49,12 @@ int main(int argc, char **argv)
 		printf("ELF Header:\n");
 	}
 	else
-		dprintf(STDERR_FILENO, "Your file sucks\n"), exit(98);
+		dprintf(STDERR_FILENO, "Not ELF file: %s\n", argv[1]), exit(98);
+
+	pmagic(header);
+
 	c = close(o);
 	if (c == -1)
-		dprintf(STDERR_FILENO, "Can't close this m'f, shit"), exit(98);
+		dprintf(STDERR_FILENO, "Error closing file descriptor: %d\n", c), exit(98);
 	return (0);
 }
