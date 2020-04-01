@@ -3,6 +3,9 @@
 
 /**
 * main - Displays info contained in ELF header
+* @argc: Number of args
+* @argv: Args vars
+* Return: Success
 */
 
 int main(int argc, char **argv)
