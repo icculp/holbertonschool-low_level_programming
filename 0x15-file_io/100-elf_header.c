@@ -3,7 +3,7 @@
 
 /**
 * pmagic - Prints the magic numbers of elf file
-* @header - elf header struc
+* @header: elf header struct
 */
 
 void pmagic(Elf64_Ehdr header)
