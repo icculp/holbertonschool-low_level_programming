@@ -149,7 +149,7 @@ void ptype(Elf64_Ehdr header)
 void pentry(Elf64_Ehdr header)
 {
 	printf("  Entry point address:               ");
-	printf("%p", (void *)&header.e_entry);
+	printf("%x", (unsigned int)header.e_entry);
 	printf("\n");
 
 }
