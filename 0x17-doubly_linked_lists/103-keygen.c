@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <pwd.h>
+#include <string.h>
 
 /**
 * main - Program
@@ -10,8 +14,13 @@
 
 int main(int ac, char **av)
 {
-	if (ac != 2)
-		return;
+	struct passwd *p;
+	char *user;
+	(void)ac;
 
-	return (0);
+	p = getpwuid(getuid());
+	user = p->pw_name;
+	if (!strcmp(av[1], user))
+		printf("user: %s\n", user);
+	return (1);
 }
