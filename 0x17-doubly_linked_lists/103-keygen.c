@@ -21,6 +21,6 @@ int main(int ac, char **av)
 	p = getpwuid(getuid());
 	user = p->pw_name;
 	if (!strcmp(av[1], user))
-		printf("user: %s\n", user);
+		printf("%s\n", user);
 	return (1);
 }
