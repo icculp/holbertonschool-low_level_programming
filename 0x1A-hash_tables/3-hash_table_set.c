@@ -19,14 +19,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (new == NULL)
 		return (0);
 	k = key_index((const unsigned char *)key, ht->size);
-	new->key = strdup(key);
-	new->value = strdup(value);
+	new->key = strdup(key), new->value = strdup(value);
 	if (ht->array[k] == NULL || strcmp(ht->array[k]->key, key) == 0)
 	{
 		if (ht->array[k] != NULL)
 		{
-			free(ht->array[k]->key);
-			free(ht->array[k]->value);
+			free(ht->array[k]->key), free(ht->array[k]->value);
 			free(ht->array[k]);
 		}
 		ht->array[k] = new;
@@ -40,14 +38,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (strcmp(temp->key, key) == 0)
 			{
 				free(temp->value);
-				free(new->key);
-				free(new->value);
+				free(new->key), free(new->value);
 				free(new);
 				temp->value = strdup(value);
 				return (1);
 			}
 			temp = temp->next;
-		}		
+		}
 		new->next = ht->array[k];
 		ht->array[k] = new;
 	}
