@@ -54,7 +54,10 @@ void sortedinsert(shash_node_t *h, shash_node_t *new, shash_table_t *ht)
 		temp = h;
 		while (temp->snext != NULL)
 		{
-			c = strcmp(temp->key, new->key);
+			if (temp->snext->key != NULL)
+				c = strcmp(temp->snext->key, new->key);
+			else
+				break;
 			if (c < 0)
 				temp = temp->snext;
 			else
@@ -62,7 +65,7 @@ void sortedinsert(shash_node_t *h, shash_node_t *new, shash_table_t *ht)
 		}
 		new->snext = temp->snext;
 		if (temp->snext != NULL)
-			new->snext->sprev = new;
+			temp->snext->sprev = new;
 		temp->snext = new;
 		new->sprev = temp;
 	}
