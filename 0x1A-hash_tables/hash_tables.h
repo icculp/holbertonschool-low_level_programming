@@ -88,5 +88,6 @@ void shash_table_print_rev(const shash_table_t *ht);
 void shash_table_delete(shash_table_t *ht);
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
 unsigned long int hash_djb2(const unsigned char *str);
+void sortedinsert(shash_node_t *h, shash_node_t *new, shash_table_t *ht);
 
 #endif
