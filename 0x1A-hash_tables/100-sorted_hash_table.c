@@ -29,6 +29,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 * sortedinsert - Inserts node into dlist of sorted hash table
 * @h: Head of sorted hash table
 * @new: New node to add to shash table
+* @ht: head of table
 */
 
 void sortedinsert(shash_node_t *h, shash_node_t *new, shash_table_t *ht)
@@ -91,8 +92,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		return (0);
 	k = key_index((const unsigned char *)key, ht->size);
 	new->key = strdup(key), new->value = strdup(value);
-	new->sprev = NULL;
-	new->next = NULL;
+	new->sprev = NULL, new->next = NULL;
 	if (ht->array[k] == NULL || strcmp(ht->array[k]->key, key) == 0)
 	{
 		if (ht->array[k] != NULL)
@@ -100,8 +100,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			free(ht->array[k]->key), free(ht->array[k]->value);
 			free(ht->array[k]);
 		}
-		ht->array[k] = new;
-		new->next = NULL;
+		ht->array[k] = new, new->next = NULL;
 		sortedinsert(ht->shead, ht->array[k], ht);
 	}
 	else
@@ -119,12 +118,9 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			}
 			temp = temp->next;
 		}
-		new->next = ht->array[k];
-		ht->array[k] = new;
+		new->next = ht->array[k], ht->array[k] = new;
 		sortedinsert(ht->shead, new, ht);
 	}
-/**	if (ht->shead->value != NULL)
-		printf("shead: %s\n", ht->shead->value);*/
 	return (1);
 }
 
@@ -218,7 +214,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 
 
 /**
-* hash_table_delete - Deletes a hash table
+* shash_table_delete - Deletes a hash table
 * @ht: Head of table
 */
 
