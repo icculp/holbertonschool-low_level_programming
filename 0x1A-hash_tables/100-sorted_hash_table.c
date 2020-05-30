@@ -88,10 +88,9 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	unsigned long int k;
 	shash_node_t *new = NULL, *temp = NULL;
 
-	if (ht == NULL || key == NULL || (strcmp(key, "") == 0))
-		return (0);
 	new = malloc(sizeof(shash_node_t));
-	if (new == NULL)
+	if (ht == NULL || new == NULL ||
+	key == NULL || (strcmp(key, "") == 0))
 		return (0);
 	k = key_index((const unsigned char *)key, ht->size);
 	new->key = strdup(key), new->value = strdup(value);
@@ -100,8 +99,10 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	{
 		if (ht->array[k] != NULL)
 		{
-			free(ht->array[k]->key), free(ht->array[k]->value);
-			free(ht->array[k]);
+			free(new->key), free(new->value);
+			free(ht->array[k]->value);
+			ht->array[k]->value = strdup(value);
+			return (1);
 		}
 		ht->array[k] = new, new->next = NULL;
 		sortedinsert(ht->shead, ht->array[k], ht);
@@ -115,8 +116,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			{
 				free(temp->value);
 				free(new->key), free(new->value);
-				free(new);
-				temp->value = strdup(value);
+				free(new), temp->value = strdup(value);
 				return (1);
 			}
 			temp = temp->next;
