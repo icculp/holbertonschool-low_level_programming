@@ -22,7 +22,7 @@ int main(void)
     hash_table_set(ht, "Betty", "Holberton");
     hash_table_set(ht, "98", "Battery Street");
     hash_table_set(ht, "c", "isfun");
-
+	ht = NULL;
     value = hash_table_get(ht, "python");
     printf("%s:%s\n", "python", value);
     value = hash_table_get(ht, "Jennie");
