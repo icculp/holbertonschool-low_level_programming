@@ -1,7 +1,7 @@
 CC=gcc
 SRC=main.c holberton.c
-#OBJ = $(SRC:.c=.o)
-OBJ =main.o holberton.o
+OBJ = $(SRC:.c=.o)
+#BJ =main.o holberton.o
 NAME=holberton
 
 
@@ -15,8 +15,10 @@ all: $(OBJ)
 #(OBJ): $(SRC)
 #$(CC) -c $(SRC)
 
-main.o:
-holberton.o:
+$(OBJ):
+
+#ain.o:
+#olberton.o:
 
 #$(OBJ): $(SRC)
 
