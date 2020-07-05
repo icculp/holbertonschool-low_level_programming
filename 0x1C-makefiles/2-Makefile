@@ -1,26 +1,18 @@
 CC=gcc
 SRC=main.c holberton.c
-OBJ = $(SRC:.c=.o)
-#BJ =main.o holberton.o
+OBJ=$(SRC:.c=.o)
 NAME=holberton
 
-
 #all: $(<S-Insert>O)
-
 #: $(NAME)
 #ll: $(NAME)
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
-
 #(OBJ): $(SRC)
 #$(CC) -c $(SRC)
-
-%.o:
-
+#%.o:
 #ain.o:
 #olberton.o:
-
 #ain.o:
 #olberton.o:
-
 #$(OBJ): $(SRC)
