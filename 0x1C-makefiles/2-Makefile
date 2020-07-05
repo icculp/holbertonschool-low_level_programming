@@ -21,6 +21,3 @@ $(OBJ):
 #olberton.o:
 
 #$(OBJ): $(SRC)
-
-clean:
-	rm *.o
