@@ -15,7 +15,8 @@ all: $(OBJ)
 #(OBJ): $(SRC)
 #$(CC) -c $(SRC)
 
-$(OBJ):
+main.o:
+holberton.o:
 
 #ain.o:
 #olberton.o:
