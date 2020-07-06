@@ -13,7 +13,6 @@ all: $(OBJ)
 re: oclean all
 #$(RM)
 #$(CC) $(OBJ) -o $(NAME)
-
 clean:
 	$(RM) *~ $(NAME)
 #	rm $(wildcard *.swp)
