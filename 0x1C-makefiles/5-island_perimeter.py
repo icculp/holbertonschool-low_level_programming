@@ -17,4 +17,8 @@ def island_perimeter(grid):
                 perimeter += 1
             if grid[i][j] == 1 and grid[i][j - 1] == 0:
                 perimeter += 1
+            if j == 100:
+                break
+        if i == 100:
+            break
     return perimeter
