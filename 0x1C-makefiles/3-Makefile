@@ -16,12 +16,12 @@ re: oclean $(OBJ)
 #$(CC) $(OBJ) -o $(NAME)
 
 clean:
-	rm -f *~ $(NAME)
+	$(RM) -f *~ $(NAME)
 #	rm $(wildcard *.swp)
 #	rm -f $(wildcard \#*\#)
 #	rm -f $(NAME)
 oclean:
-	rm -f $(OBJ)
+	$(RM) -f $(OBJ)
 fclean:
 	$(RM) -f *~ $(NAME)
 	$(RM) -f $(OBJ)
