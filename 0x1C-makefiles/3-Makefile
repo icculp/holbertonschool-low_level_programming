@@ -7,19 +7,25 @@ RM=rm -f
 #: $(NAME)
 #ll: $(NAME)
 #PHONY: clean oclean fclean re all
+
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 #$(RM)
 #$(CC) $(OBJ) -o $(NAME)
+
 clean:
 	$(RM) *~ $(NAME)
 #	rm $(wildcard *.swp)
 #	rm -f $(wildcard \#*\#)
 #	rm -f $(NAME)
+
 oclean:
 	$(RM) $(OBJ)
+
 fclean: clean oclean
+
 re: oclean all
+
 #$(RM) *~ $(NAME)
 #$(RM) $(OBJ)
 #	rm -f $(wildcard \#*\#)
