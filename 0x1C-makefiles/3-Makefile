@@ -10,8 +10,7 @@ RM=rm -f
 
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
-re: oclean $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+re: oclean all
 #$(RM)
 #$(CC) $(OBJ) -o $(NAME)
 
