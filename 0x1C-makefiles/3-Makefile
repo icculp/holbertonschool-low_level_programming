@@ -18,10 +18,12 @@ clean:
 #	rm -f $(NAME)
 oclean:
 	rm -f $(OBJ)
-fclean:
-	rm -f $(wildcard \#*\#)
-	rm -f $(wildcard *.o)
-	rm -f $(NAME)
+fclean: clean oclean
+#	rm -f $(wildcard \#*\#)
+#	rm -f $(wildcard *.o)
+#	rm -f *~ $(NAME)
+#clean
+#oclean
 	
 #(OBJ): $(SRC)
 #$(CC) -c $(SRC)
