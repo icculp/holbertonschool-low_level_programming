@@ -3,21 +3,12 @@ SRC = main.c holberton.c
 OBJ = $(SRC:.c=.o)
 NAME = holberton
 RM = rm -f
-#all: $(<S-Insert>O)
-#: $(NAME)
-#ll: $(NAME)
-#PHONY: clean oclean fclean re all
 
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
-#$(RM)
-#$(CC) $(OBJ) -o $(NAME)
 
 clean:
 	$(RM) *~ $(NAME)
-#	rm $(wildcard *.swp)
-#	rm -f $(wildcard \#*\#)
-#	rm -f $(NAME)
 
 oclean:
 	$(RM) $(OBJ)
@@ -25,19 +16,3 @@ oclean:
 fclean: clean oclean
 
 re: oclean all
-
-#$(RM) *~ $(NAME)
-#$(RM) $(OBJ)
-#	rm -f $(wildcard \#*\#)
-#	rm -f $(wildcard *.o)
-#	rm -f *~ $(NAME)
-#clean
-#oclean
-#(OBJ): $(SRC)
-#$(CC) -c $(SRC)
-#%.o:
-#ain.o:
-#olberton.o:
-#ain.o:
-#olberton.o:
-#$(OBJ): $(SRC)
