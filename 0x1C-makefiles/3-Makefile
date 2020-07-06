@@ -20,9 +20,9 @@ clean:
 #	rm -f $(NAME)
 oclean:
 	$(RM) $(OBJ)
-fclean:
-	$(RM) *~ $(NAME)
-	$(RM) $(OBJ)
+fclean: clean oclean
+#$(RM) *~ $(NAME)
+#$(RM) $(OBJ)
 #	rm -f $(wildcard \#*\#)
 #	rm -f $(wildcard *.o)
 #	rm -f *~ $(NAME)
