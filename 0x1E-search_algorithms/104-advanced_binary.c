@@ -32,11 +32,13 @@ int bin_rec(int *a, int v, int l, int r)
 {
 	int m = l + (r - l) / 2;
 
-/**	if (l == r)
-	{
-		pray(a, l, r);
-		return (-1);
-	}*/
+	/**
+	*if (l == r)
+	*{
+	*	pray(a, l, r);
+	*	return (-1);
+	*}
+	*/
 
 	if (r >= l)
 	{
