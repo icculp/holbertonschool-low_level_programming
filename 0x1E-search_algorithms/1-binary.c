@@ -37,10 +37,11 @@ int binary_search(int *array, size_t size, int value)
 
 	l = 0;
 	r = (int)size - 1;
-	while (l < r)
+	while (l <= r)
 	{
 		m = (l + r) / 2;
 		pray(array, l, r);
+		/**printf("array[%d]: %d\n", m, array[m]);*/
 		if (array[m] < value)
 			l = m + 1;
 		else if (array[m] > value)
@@ -50,7 +51,7 @@ int binary_search(int *array, size_t size, int value)
 			return (m);
 		}
 	}
-	pray(array, l, r);
+	/**pray(array, l, r);*/
 
 	return (-1);
 }
