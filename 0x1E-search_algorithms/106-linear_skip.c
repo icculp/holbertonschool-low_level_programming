@@ -9,44 +9,43 @@
 
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
-	listint_t *temp;
-	int a = 0, s = 0;
+	skiplist_t *temp, *temp2;
 
 	if (list == NULL)
 		return (NULL);
-	s = sqrt((int)size);
-	temp = go_to_indx(list, s);
-	printf("Value checked array[%d] = [%d]\n", s, temp->n);
-	while (temp->n < value)
-	{
-		a = s, s = s + sqrt((int)size), temp = list;
-		while ((int)temp->index != s && temp->next != NULL)
-			temp = temp->next;
-		printf("Value checked array[%d] = [%d]\n", s, temp->n);
-		if (s >= (int)size)
-		{
-			s = (int)size - 1;
-			break;
-		}
-	}
-	printf("Value found between indexes [%d] and [%d]\n", a, s);
 	temp = list;
-	while ((int)temp->index != a && temp->next != NULL)
-		temp = temp->next;
-	while (temp->n < value)
+	while (temp->express)
 	{
-		printf("Value checked array[%d] = [%d]\n", a, temp->n), a++;
-		temp = list;
-		while ((int)temp->index != a && temp->next != NULL)
-			temp = temp->next;
-		if (a == mini(s, (int)size))
+		printf("Value checked at index [%d] = [%d]\n",
+			(int)temp->express->index, temp->express->n);
+		if (temp->express->n >= value)
 			break;
+		temp = temp->express;
 	}
-	if (temp->n == value)
+	if (temp->express && temp->express->n == value)
+		return (temp->express);
+	if (temp->express)
+		printf("Value found between indexes [%d] and [%d]\n",
+			(int)temp->index, (int)temp->express->index);
+	else
 	{
-		printf("Value checked array[%d] = [%d]\n", a, temp->n);
-		return (temp);
+		temp2 = temp;
+		while (temp2->next)
+			temp2 = temp2->next;
+		printf("Value found between indexes [%d] and [%d]\n",
+			(int)temp->index, (int)temp2->index);
 	}
-	printf("Value checked array[%d] = [%d]\n", a, temp->n);
+	while (temp->next && temp->next->n < value)
+	{
+		printf("Value checked at index [%d] = [%d]\n", (int)temp->index, temp->n);
+		temp = temp->next;
+	}
+	printf("Value checked at index [%d] = [%d]\n", (int)temp->index, temp->n);
+	if (temp->next && temp->next->n == value)
+	{
+		printf("Value checked at index [%d] = [%d]\n",
+			(int)temp->next->index, temp->next->n);
+		return (temp->next);
+	}
 	return (NULL);
 }
