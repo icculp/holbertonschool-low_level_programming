@@ -25,7 +25,7 @@ int mini(int a, int b)
 
 int jump_search(int *array, size_t size, int value)
 {
-	int a, s;
+	int a, s, flag = 0;
 
 	if (array == NULL)
 		return (-1);
@@ -47,6 +47,7 @@ int jump_search(int *array, size_t size, int value)
 	{
 		printf("Value checked array[%d] = [%d]\n", a, array[a]);
 		a++;
+		flag = 1;
 		if (a == mini(s, (int)size))
 			break;
 	}
@@ -55,6 +56,7 @@ int jump_search(int *array, size_t size, int value)
 		printf("Value checked array[%d] = [%d]\n", a, array[a]);
 		return (a);
 	}
-
+	if (flag == 0)
+		printf("Value checked array[%d] = [%d]\n", a, array[a]);
 	return (-1);
 }
