@@ -49,13 +49,13 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		return (NULL);
 	s = sqrt((int)size);
 	temp = go_to_indx(list, s);
-	printf("Value checked array[%d] = [%d]\n", s, temp->n);
+	printf("Value checked at index [%d] = [%d]\n", s, temp->n);
 	while (temp->n < value)
 	{
 		a = s, s = s + sqrt((int)size), temp = list;
 		while ((int)temp->index != s && temp->next != NULL)
 			temp = temp->next;
-		printf("Value checked array[%d] = [%d]\n", s, temp->n);
+		printf("Value checked at index [%d] = [%d]\n", s, temp->n);
 		if (s >= (int)size)
 		{
 			s = (int)size - 1;
@@ -68,7 +68,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		temp = temp->next;
 	while (temp->n < value)
 	{
-		printf("Value checked array[%d] = [%d]\n", a, temp->n), a++;
+		printf("Value checked at index [%d] = [%d]\n", a, temp->n), a++;
 		temp = list;
 		while ((int)temp->index != a && temp->next != NULL)
 			temp = temp->next;
@@ -77,9 +77,9 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	}
 	if (temp->n == value)
 	{
-		printf("Value checked array[%d] = [%d]\n", a, temp->n);
+		printf("Value checked at index [%d] = [%d]\n", a, temp->n);
 		return (temp);
 	}
-	printf("Value checked array[%d] = [%d]\n", a, temp->n);
+	printf("Value checked at index [%d] = [%d]\n", a, temp->n);
 	return (NULL);
 }
